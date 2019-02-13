@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 import csv
 import datetime
+import os
 # import cx_Oracle
 
 
@@ -51,7 +52,7 @@ class TargetTable(db.Model):
 # index
 @app.route("/")
 def index():
-    return "it's works."
+    return "it's works.", 200
 
 
 # テーブル作成
@@ -65,7 +66,7 @@ def init():
     db.create_all()
 
     # データインポート
-    with open("data/init_data.csv", encoding="utf8") as csv_file:
+    with open(os.path.join(os.path.dirname(__file__), "data", "init_data.csv"), encoding="utf8") as csv_file:
         reader = csv.DictReader(csv_file)
         for rec in reader:
             app.logger.debug(rec)
