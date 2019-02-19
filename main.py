@@ -8,8 +8,12 @@ import os
 
 # DB接続設定
 def init_db():
-    # DB
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+    # DB(sqlite in-memory)
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+    # DB(oracle)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'oracle+cx_oracle://user:pw@' \
+                                            'xxx.xxx.xxx.xxx:9999' \
+                                            '/?service_name=DBNAME'
     # デバッグログ
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
