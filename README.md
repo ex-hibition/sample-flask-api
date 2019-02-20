@@ -6,14 +6,20 @@
 ## usage
 ### 実行
 ```bash
+# -- 仮想環境構築
 $ pipenv install
-$ pipenv run python main.py
+
+# -- アプリケーション実行
+$ pipenv run start 
+
+# -- テスト実行
+$ pipenv run test 
 ```
 
 ### データベース初期化
-- テーブル削除
-- テーブル作成
-- 初期データ登録
+1. テーブル削除
+1. テーブル作成
+1. 初期データ登録
 
 ```bash
 $ curl -X GET http://0.0.0.0:5000/app/init
